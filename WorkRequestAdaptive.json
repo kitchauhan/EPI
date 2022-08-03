@@ -1,0 +1,238 @@
+{
+  "type": "AdaptiveCard",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "bolder",
+              "text": "WR Type:",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${customProperties.ARM_WR_TYPE}",
+              "wrap": true,
+              "$when": "${and(not(empty(customProperties.ARM_WR_TYPE)),(not(equals(customProperties.ARM_WR_TYPE, null))))}",
+              "style": "default"
+            }
+          ],
+          "horizontalAlignment": "Left"
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "bolder",
+              "text": "Work Code:",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${customProperties.ARM_WORK_CODE}",
+              "wrap": true,
+              "$when": "${and(not(empty(customProperties.ARM_WORK_CODE)),(not(equals(customProperties.ARM_WORK_CODE, null))))}",
+              "style": "default"
+            }
+          ],
+          "horizontalAlignment": "Left"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "size": "medium",
+      "weight": "bolder",
+      "text": "Tasks",
+      "$when": "${and(not(empty(customProperties.ARM_TASKS)),(not(equals(customProperties.ARM_TASKS, null))))}"
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "bolder",
+              "text": "${number}",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "isSubtle": true,
+              "text": "Updated {{DATE(${statusChanged},COMPACT)}}",
+              "wrap": true,
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "isSubtle": true,
+              "text": "User:",
+              "horizontalAlignment": "right",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "isSubtle": true,
+              "text": "Completed:",
+              "horizontalAlignment": "right",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "bolder",
+              "text": "${responsible}",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "weight": "bolder",
+              "text": "${completedBy}",
+              "wrap": true,
+              "$when": "${and(not(empty(completedBy)),(not(equals(completedBy, null))))}"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "isSubtle": true,
+              "text": "${status}",
+              "horizontalAlignment": "right",
+              "wrap": true
+            }
+          ]
+        }
+      ],
+      "$data": "${customProperties.ARM_TASKS}",
+      "$when": "${and(not(empty(number)),(not(equals(number, null))))}"
+    },
+	{
+      "type": "TextBlock",
+      "size": "medium",
+      "weight": "bolder",
+      "text": "DEMO-Bhaskar"
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "bolder",
+              "text": "${number}",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "isSubtle": true,
+              "text": "Updated {{DATE(${statusChanged},COMPACT)}}",
+              "wrap": true,
+              "spacing": "none"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "isSubtle": true,
+              "text": "User:",
+              "horizontalAlignment": "right",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "isSubtle": true,
+              "text": "Completed:",
+              "horizontalAlignment": "right",
+              "wrap": true
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "bolder",
+              "text": "${responsible}",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "weight": "bolder",
+              "text": "${completedBy}",
+              "wrap": true,
+              "$when": "${and(not(empty(completedBy)),(not(equals(completedBy, null))))}"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "isSubtle": true,
+              "text": "${status}",
+              "horizontalAlignment": "right",
+              "wrap": true
+            }
+          ]
+        }
+      ],
+      "$data": "${customProperties.ARM_TASKS}",
+      "$when": "${and(not(empty(number)),(not(equals(number, null))))}"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Save"
+    }
+  ]
+}
