@@ -1,238 +1,316 @@
 {
-  "type": "AdaptiveCard",
-  "version": "1.4",
-  "body": [
-    {
-      "type": "ColumnSet",
-      "columns": [
+    "type": "AdaptiveCard",
+    "version": "1.4",
+    "body": [
         {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "weight": "bolder",
-              "text": "WR Type:",
-              "wrap": true
-            }
-          ]
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "WR Type:",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "${customProperties.ARM_WR_TYPE}",
+                            "wrap": true,
+                            "$when": "${and(not(empty(customProperties.ARM_WR_TYPE)),(not(equals(customProperties.ARM_WR_TYPE, null))))}",
+                            "style": "default"
+                        }
+                    ],
+                    "horizontalAlignment": "Left"
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "Work Code:",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "${customProperties.ARM_WORK_CODE}",
+                            "wrap": true,
+                            "$when": "${and(not(empty(customProperties.ARM_WORK_CODE)),(not(equals(customProperties.ARM_WORK_CODE, null))))}",
+                            "style": "default"
+                        }
+                    ],
+                    "horizontalAlignment": "Left"
+                }
+            ]
         },
         {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "text": "${customProperties.ARM_WR_TYPE}",
-              "wrap": true,
-              "$when": "${and(not(empty(customProperties.ARM_WR_TYPE)),(not(equals(customProperties.ARM_WR_TYPE, null))))}",
-              "style": "default"
-            }
-          ],
-          "horizontalAlignment": "Left"
+            "type": "TextBlock",
+            "size": "medium",
+            "weight": "bolder",
+            "text": "Tasks",
+            "$when": "${and(not(empty(customProperties.ARM_TASKS)),(not(equals(customProperties.ARM_TASKS, null))))}"
         },
         {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "weight": "bolder",
-              "text": "Work Code:",
-              "wrap": true
-            }
-          ]
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "${number}",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "isSubtle": true,
+                            "text": "Updated {{DATE(${statusChanged},COMPACT)}}",
+                            "wrap": true,
+                            "spacing": "none"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "isSubtle": true,
+                            "text": "User:",
+                            "horizontalAlignment": "right",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "isSubtle": true,
+                            "text": "Completed:",
+                            "horizontalAlignment": "right",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "${responsible}",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "${completedBy}",
+                            "wrap": true,
+                            "$when": "${and(not(empty(completedBy)),(not(equals(completedBy, null))))}"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "isSubtle": true,
+                            "text": "${status}",
+                            "horizontalAlignment": "right",
+                            "wrap": true
+                        }
+                    ]
+                }
+            ],
+            "$data": "${customProperties.ARM_TASKS}",
+            "$when": "${and(not(empty(number)),(not(equals(number, null))))}"
         },
         {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "text": "${customProperties.ARM_WORK_CODE}",
-              "wrap": true,
-              "$when": "${and(not(empty(customProperties.ARM_WORK_CODE)),(not(equals(customProperties.ARM_WORK_CODE, null))))}",
-              "style": "default"
-            }
-          ],
-          "horizontalAlignment": "Left"
+            "type": "TextBlock",
+            "size": "medium",
+            "weight": "bolder",
+            "text": "Work Responsible Group"
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "Responsible Group",
+                            "horizontalAlignment": "right",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "isSubtle": true,
+                            "text": "${responsibleGroup}",
+                            "horizontalAlignment": "right",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "isSubtle": true,
+                            "text": "WR Owner:",
+                            "horizontalAlignment": "right",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "isSubtle": true,
+                            "text": "DEMO data",
+                            "horizontalAlignment": "right",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "WR Type:",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "DEMO data",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "BCA ID:",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "DEMO data",
+                            "wrap": true,
+                            "$when": "${and(not(empty(bcaID)),(not(equals(bcaID, null))))}"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "WR Name:",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "DEMO data",
+                            "wrap": true,
+                            "$when": "${and(not(empty(wrName)),(not(equals(wrName, null))))}"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "Scheduling Polygon:",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "${schedulingPolygon}",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "WORK CODE:",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "workCode",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "TAX DISTRICT:",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "weight": "bolder",
+                            "text": "taxDistrict",
+                            "wrap": true
+                        }
+                    ]
+                }
+            ],
+            "$data": "${customProperties.ARM_WR_FIELDS}"
         }
-      ]
-    },
-    {
-      "type": "TextBlock",
-      "size": "medium",
-      "weight": "bolder",
-      "text": "Tasks",
-      "$when": "${and(not(empty(customProperties.ARM_TASKS)),(not(equals(customProperties.ARM_TASKS, null))))}"
-    },
-    {
-      "type": "ColumnSet",
-      "columns": [
+    ],
+    "actions": [
         {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "weight": "bolder",
-              "text": "${number}",
-              "wrap": true
-            },
-            {
-              "type": "TextBlock",
-              "isSubtle": true,
-              "text": "Updated {{DATE(${statusChanged},COMPACT)}}",
-              "wrap": true,
-              "spacing": "none"
-            }
-          ]
-        },
-        {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "isSubtle": true,
-              "text": "User:",
-              "horizontalAlignment": "right",
-              "wrap": true
-            },
-            {
-              "type": "TextBlock",
-              "isSubtle": true,
-              "text": "Completed:",
-              "horizontalAlignment": "right",
-              "wrap": true
-            }
-          ]
-        },
-        {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "weight": "bolder",
-              "text": "${responsible}",
-              "wrap": true
-            },
-            {
-              "type": "TextBlock",
-              "weight": "bolder",
-              "text": "${completedBy}",
-              "wrap": true,
-              "$when": "${and(not(empty(completedBy)),(not(equals(completedBy, null))))}"
-            }
-          ]
-        },
-        {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "isSubtle": true,
-              "text": "${status}",
-              "horizontalAlignment": "right",
-              "wrap": true
-            }
-          ]
+            "type": "Action.Submit",
+            "title": "Save"
         }
-      ],
-      "$data": "${customProperties.ARM_TASKS}",
-      "$when": "${and(not(empty(number)),(not(equals(number, null))))}"
-    },
-	{
-      "type": "TextBlock",
-      "size": "medium",
-      "weight": "bolder",
-      "text": "DEMO-Bhaskar"
-    },
-    {
-      "type": "ColumnSet",
-      "columns": [
-        {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "weight": "bolder",
-              "text": "${number}",
-              "wrap": true
-            },
-            {
-              "type": "TextBlock",
-              "isSubtle": true,
-              "text": "Updated {{DATE(${statusChanged},COMPACT)}}",
-              "wrap": true,
-              "spacing": "none"
-            }
-          ]
-        },
-        {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "isSubtle": true,
-              "text": "User:",
-              "horizontalAlignment": "right",
-              "wrap": true
-            },
-            {
-              "type": "TextBlock",
-              "isSubtle": true,
-              "text": "Completed:",
-              "horizontalAlignment": "right",
-              "wrap": true
-            }
-          ]
-        },
-        {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "weight": "bolder",
-              "text": "${responsible}",
-              "wrap": true
-            },
-            {
-              "type": "TextBlock",
-              "weight": "bolder",
-              "text": "${completedBy}",
-              "wrap": true,
-              "$when": "${and(not(empty(completedBy)),(not(equals(completedBy, null))))}"
-            }
-          ]
-        },
-        {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
-            {
-              "type": "TextBlock",
-              "isSubtle": true,
-              "text": "${status}",
-              "horizontalAlignment": "right",
-              "wrap": true
-            }
-          ]
-        }
-      ],
-      "$data": "${customProperties.ARM_TASKS}",
-      "$when": "${and(not(empty(number)),(not(equals(number, null))))}"
-    }
-  ],
-  "actions": [
-    {
-      "type": "Action.Submit",
-      "title": "Save"
-    }
-  ]
+    ]
 }
