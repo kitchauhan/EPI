@@ -1,0 +1,84 @@
+{
+  "type": "AdaptiveCard",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "Input.Text",
+      "id": "ARM_REV_NUM",
+      "value": "${design.customProperties.ARM_REV_NUM}",
+      "label": "Revision Number"
+    },
+    {
+      "type": "TextBlock",
+      "size": "medium",
+      "weight": "bolder",
+      "text": "Heavy Bid Estimate",
+      "$when": "${and(not(empty(design.customProperties.HBEstimate)),(not(equals(design.customProperties.HBEstimate, null))))}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${design.customProperties.HBEstimate}",
+      "wrap": true,
+      "$when": "${and(not(empty(design.customProperties.HBEstimate)),(not(equals(design.customProperties.HBEstimate, null))))}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${design.customProperties.heavyBidFiles}",
+      "wrap": true,
+      "$when": "${and(not(empty(design.customProperties.heavyBidFiles)),(not(equals(design.customProperties.heavyBidFiles, null))))}"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.ShowCard",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "ColumnSet",
+            "columns": [
+              {
+                "type": "Column",
+                "width": "stretch",
+                "items": [
+                  {
+                    "type": "TextBlock",
+                    "isSubtle": true,
+                    "text": "{{DATE(${date},COMPACT)}}",
+                    "wrap": true,
+                    "spacing": "none"
+                  }
+                ]
+              },
+              {
+                "type": "Column",
+                "width": "stretch",
+                "items": [
+                  {
+                    "type": "TextBlock",
+                    "isSubtle": true,
+                    "text": "${message}",
+                    "wrap": true
+                  }
+                ]
+              }
+            ],
+            "$data": "${design.customProperties.IntegrationErrors}"
+          }
+        ]
+      },
+      "title": "Errors",
+      "$when": "${and(not(empty(design.customProperties.IntegrationErrors)),(not(equals(design.customProperties.IntegrationErrors, null))))}"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "url": "${design.customProperties.AdeptURL}",
+      "title": "Adept",
+      "$when": "${and(not(empty(design.customProperties.AdeptURL)),(not(equals(design.customProperties.AdeptURL, null))))}"
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Save"
+    }
+  ]
+}

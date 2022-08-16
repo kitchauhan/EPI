@@ -1,0 +1,64 @@
+{
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Input.Text",
+      "id": "workRequestStatus",
+      "placeholder": "Work Request status when available",
+      "value": "${if(or(equals(status, null), equals(status, '')), ' ', status)}",
+      "label": "Work Request Status"
+    },
+    {
+      "type": "Input.Text",
+      "id": "workRequestLocation",
+      "value": "${if(or(equals(location, null), equals(location, '')), ' ', location)}",
+      "label": "Work Request Location"
+    },
+    {
+      "type": "Input.Text",
+      "id": "customerResponse",
+      "value": "${if(or(equals(customerResponse, null), equals(customerResponse, '')), ' ', customerResponse)}",
+      "isMultiline": true,
+      "label": "Customer Response"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Work Request Type Selection"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "workRequestTypeSelection",
+      "value": "${if(or(equals(workRequestTypeSelection, null), equals(workRequestTypeSelection, '')), ' ', (workRequestTypeSelection))}",
+      "style": "compact",
+      "isMultiSelect": false,
+      "choices": [
+        {
+          "title": "Service",
+          "value": "Choice 1"
+        },
+        {
+          "title": "Distribution",
+          "value": "Choice 2"
+        },
+        {
+          "title": "Reinforcement",
+          "value": "Choice 3"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Save",
+      "style": "Primary"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "url": "https://www.se.com/us/en/",
+      "title": "Project Website",
+      "style": "Link"
+    }
+  ]
+}

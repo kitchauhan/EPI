@@ -1,0 +1,31 @@
+[
+  {
+    "key": "AdeptURL",
+    "value": "https://google.com"
+  },
+  {
+    "key": "HBEstimate",
+    "value": "$11,000"
+  },
+  {
+    "key": "ARM_REV_NUM",
+    "value": "1"
+  },
+  {
+    "key": "IntegrationErrors",
+    "value": [
+      {
+        "message": "error message 1",
+        "date": "2022-02-14T22:18:32Z"
+      },
+      {
+        "message": "error message 2",
+        "date": "2022-02-15T22:18:32Z"
+      },
+      {
+        "message": "error message 16",
+        "date": "2022-02-15T22:18:32Z"
+      }
+    ]
+  }
+]
