@@ -1,0 +1,78 @@
+[
+    {
+        "key": "ARM_WR_TYPE",
+        "value": "OM"
+    },
+    {
+        "key": "ARM_WORK_CODE",
+        "value": "4123"
+    },
+    {
+        "key": "ARM_FEEDER_ID",
+        "value": "10M02"
+    },
+    {
+        "key": "ARM_CLASSIFICATION",
+        "value": "classification"
+    },
+    {
+        "key": "ARM_BCA_ID",
+        "value": "BCA 12345"
+    },
+    {
+        "key": "ARM_TASKS",
+        "value": [
+            {
+                "number": "3650",
+                "status": "Complete",
+                "statusChanged": "2021-02-14T06:08:39Z",
+                "completedBy": "John Smith",
+                "responsible": "John Reed"
+            },
+            {
+                "number": "3675",
+                "status": "Working",
+                "statusChanged": "2021-02-14T06:08:39Z",
+                "completedBy": "Bhaskar",
+                "responsible": "John Reed"
+            }
+        ]
+    },
+    {
+        "key": "ARM_WR_FIELDS",
+        "value": [
+            {
+                "responsibleGroup": "Regional Engineering 1",
+                "wrOwner": "Bhaskar Singh 1",
+                "wrType": "WR-Type-Unknown 1",
+                "bcaID": "DEMO BACK_ID 1",
+                "wrName": "Demo WR Name 1",
+                "schedulingPolygon": "DEMO Scheduling Polygon 1",
+                "workCode": "WR WORK_CODE 1",
+                "taxDistrict": "DEMO TAX DISTRICT 1"
+            },
+            {
+                "responsibleGroup": "Regional Engineering 1",
+                "wrOwner": "Bhaskar Singh 1",
+                "wrType": "WR-Type-Unknown 1",
+                "bcaID": "DEMO BACK_ID 1",
+                "wrName": "Demo WR Name 1",
+                "schedulingPolygon": "DEMO Scheduling Polygon 1",
+                "workCode": "WR WORK_CODE 1",
+                "taxDistrict": "DEMO TAX DISTRICT 1"
+            }
+        ]
+    },
+    {
+        "key": "ARM_ADDRESS",
+        "value": [
+            {
+                "streetAddress": "Demo Street",
+                "appartment": "#244",
+                "City": "Salem",
+                "State": "Oregon",
+                "Zip": "97304"
+            }
+        ]
+    }
+]
