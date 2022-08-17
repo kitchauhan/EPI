@@ -37,42 +37,5 @@
                 "responsible": "John Reed"
             }
         ]
-    },
-    {
-        "key": "ARM_WR_FIELDS",
-        "value": [
-            {
-                "responsibleGroup": "Regional Engineering 1",
-                "wrOwner": "Bhaskar Singh 1",
-                "wrType": "WR-Type-Unknown 1",
-                "bcaID": "DEMO BACK_ID 1",
-                "wrName": "Demo WR Name 1",
-                "schedulingPolygon": "DEMO Scheduling Polygon 1",
-                "workCode": "WR WORK_CODE 1",
-                "taxDistrict": "DEMO TAX DISTRICT 1"
-            },
-            {
-                "responsibleGroup": "Regional Engineering 1",
-                "wrOwner": "Bhaskar Singh 1",
-                "wrType": "WR-Type-Unknown 1",
-                "bcaID": "DEMO BACK_ID 1",
-                "wrName": "Demo WR Name 1",
-                "schedulingPolygon": "DEMO Scheduling Polygon 1",
-                "workCode": "WR WORK_CODE 1",
-                "taxDistrict": "DEMO TAX DISTRICT 1"
-            }
-        ]
-    },
-    {
-        "key": "ARM_ADDRESS",
-        "value": [
-            {
-                "streetAddress": "Demo Street",
-                "appartment": "#244",
-                "City": "Salem",
-                "State": "Oregon",
-                "Zip": "97304"
-            }
-        ]
     }
 ]
